@@ -119,7 +119,6 @@ pipeline {
         stage("Health Checks") {
             steps {
                 script {
-                    // Implement health checks here, such as waiting for pods to be ready
                     sh "kubectl wait --for=condition=ready pod -l app=${KUBE_DEPLOYMENT_NAME} --timeout=300s --namespace=${KUBE_NAMESPACE}"
                 }
             }
